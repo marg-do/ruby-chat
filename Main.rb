@@ -20,7 +20,9 @@ def acceptLoopPerUser(handler)
   puts (peerAddr handler) + " : " + line
   #-------------------- start
   @@handlers.each do |h|
-    hPutStrLn(h, (peerAddr handler) + " : " + line)
+    if ((peerAddr h) != (peerAddr handler))
+      hPutStrLn(h, (peerAddr handler) + " : " + line)
+    end
   end
   #-------------------- end
   #hPutStrLn(handler, line.reverse)
@@ -53,4 +55,3 @@ def main
 end
 
 # --------------------------------------------------
-
